@@ -2,6 +2,7 @@ local options = {
   clipboard = 'unnamed',
   expandtab = true,
   inccommand = 'nosplit',
+  mouse = 'n',
   shiftwidth = 2,
 }
 
@@ -23,10 +24,14 @@ local keymap = {
 }
 
 local autocommands = {
+  -- restore cursor
   'BufRead *'
   ..[[ if &ft !~# 'commit' ]]
   ..[[ | exe 'normal! g`"' ]]
   ..[[ | endif ]],
+  -- MANPAGER = nvim
+  'BufRead /tmp/man.* set ft=man',
+  -- auto toggle hlsearch
   [[ CmdlineEnter /,\? :set hlsearch ]],
   [[ CmdlineLeave /,\? :set nohlsearch ]],
 }

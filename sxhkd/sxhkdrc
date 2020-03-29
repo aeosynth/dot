@@ -1,0 +1,18 @@
+super + semicolon
+  alacritty
+
+super + Escape
+  pkill -USR1 -x sxhkd
+
+# bspwm
+super + {j,k}
+  bspc node -f {next,prev}.local
+
+super + bracket{left,right}
+  bspc desktop -f {prev,next}
+
+super + {_,shift + }{1-5}
+  bspc {desktop -f,node -d} '^{1-5}'
+
+super + grave
+  bspc desktop -f last
