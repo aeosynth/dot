@@ -6,7 +6,7 @@ mouse:
     launcher:
       program: firefox
 shell:
-  program: /bin/elvish
+  program: /usr/bin/nu
 
 # Colors (Dracula)
 colors:

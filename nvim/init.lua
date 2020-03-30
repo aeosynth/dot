@@ -15,11 +15,16 @@ local gopts = {
 -- empty string for map
 local keymap = {
   [''] = {
-    f = '<Plug>Sneak_s',
-    F = '<Plug>Sneak_S',
+    f = '<Plug>Sneak_f',
+    F = '<Plug>Sneak_F',
+    -- Sneak is invoked with operators via z (because ... surround.vim).
+    s = '<Plug>Sneak_s',
+    S = '<Plug>Sneak_S',
   },
   n = {
-    ['<Esc>'] = ':x<CR>'
+    ['<cr>'] = ':',
+    ['<esc>'] = ':x<cr>',
+    ['<space>e'] = ':sp ~/.config/nvim/init.lua<cr>',
   }
 }
 
