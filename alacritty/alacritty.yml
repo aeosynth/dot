@@ -6,7 +6,7 @@ mouse:
     launcher:
       program: firefox
 shell:
-  program: /usr/bin/nu
+  program: /home/james/.cargo/bin/nu
 
 # Colors (Dracula)
 colors:
