@@ -1,6 +1,5 @@
-set clipboard=unnamed
+set clipboard=unnamedplus
 set expandtab
-set hidden
 set inccommand=nosplit
 set mouse=n
 set shiftwidth=2
@@ -16,11 +15,11 @@ map F <Plug>Sneak_F
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
-nn \ Y:@"<cr>
+nn <c-k> <C-^>
 nn <esc> :x<cr>
-nn <cr> :
-nn <space>t :sp +startinsert \| term<cr>
+nn <space>; :sp +startinsert \| term nu<cr>
 nn <space>ea :sp ~/.config/alacritty/alacritty.yml<cr>
+nn <expr> <space>ef ':sp ~/.config/nvim/after/ftplugin/' .. &ft .. '.vim<cr>'
 nn <space>ee :sp $MYVIMRC<cr>
 nn <space>ei :sp ~/notes/ideas.md<cr>
 nn <space>et :sp ~/notes/todo.md<cr>
