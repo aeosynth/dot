@@ -1,13 +1,13 @@
-abbr <buffer> lm let mut
-abbr <buffer> st struct
+iabbr <buffer> lm let mut
+iabbr <buffer> st struct
 
-abbr <buffer> P println!
-abbr <buffer> <S <String
-abbr <buffer> [S [String
-abbr <buffer> &[S &[String
-abbr <buffer> S String
+iabbr <buffer> P println!
+iabbr <buffer> <S <String
+iabbr <buffer> [S [String
+iabbr <buffer> &[S &[String
+iabbr <buffer> S String
 
-abbr <buffer> #m #[cfg(test)]<cr>mod tests {
-abbr <buffer> #t #[test]<cr>fn
+iabbr <buffer> #m #[cfg(test)]<cr>mod tests {
+iabbr <buffer> #t #[test]<cr>fn
 
 compiler cargo

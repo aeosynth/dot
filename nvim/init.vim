@@ -5,9 +5,10 @@ set mouse=n
 set shiftwidth=2
 set statusline=%f%m%r%=%c,%l/%L
 
-" use a different tool
+" disable netrw (use a different tool)
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
+let g:markdown_folding=1
 
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
@@ -15,6 +16,7 @@ map F <Plug>Sneak_F
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
+nn <tab> zA
 nn <c-k> <C-^>
 nn <esc> :x<cr>
 nn <space>; :sp +startinsert \| term nu<cr>
