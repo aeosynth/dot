@@ -2,8 +2,9 @@ set clipboard=unnamedplus
 set expandtab
 set inccommand=nosplit
 set mouse=n
+set scrolloff=2
 set shiftwidth=2
-set statusline=%f%m%r%=%c,%l/%-5L%{strftime('%a\ %l:%M\ %p')}
+set statusline=%f%m%r%=%c,%l/%-6L%{strftime('%a\ %d\ %l:%M')}
 
 " disable netrw (use a different tool)
 let g:loaded_netrw=1
@@ -20,9 +21,8 @@ nn <c-k> <C-^>
 nn <esc> :x<cr>
 nn <space>; :sp +startinsert \| term nu<cr>
 nn <space>a zA
-nn <space>ea :sp ~/.config/alacritty/alacritty.yml<cr>
-nn <expr> <space>ef ':sp ~/.config/nvim/after/ftplugin/' .. &ft .. '.vim<cr>'
 nn <space>ee :sp $MYVIMRC<cr>
+nn <expr> <space>ef ':sp ~/.config/nvim/after/ftplugin/' .. &ft .. '.vim<cr>'
 nn <space>ei :sp ~/notes/ideas.md<cr>
 nn <space>et :sp ~/notes/todo.md<cr>
 
@@ -36,6 +36,8 @@ au BufRead *
 \ | endif
 " MANPAGER = nvim
 au BufRead /tmp/man.* set ft=man
+" open fold, center (hide error when there are no folds)
+au BufWinEnter * silent! exe 'normal! zozz'
 " toggle hlsearch
 au CmdlineEnter /,\? set hlsearch
 au CmdlineLeave /,\? set nohlsearch

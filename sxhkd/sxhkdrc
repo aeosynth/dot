@@ -5,11 +5,11 @@ super + Escape
   pkill -USR1 -x sxhkd
 
 # bspwm
+super + f
+  bspc node -t ~fullscreen
+
 super + {_,shift + }{j,k}
   bspc node -{f,s} {next,prev}.local
-
-super + bracket{left,right}
-  bspc desktop -f {prev,next}
 
 super + {_,shift + }{1-5}
   bspc {desktop -f,node -d} '^{1-5}'
