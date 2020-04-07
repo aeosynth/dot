@@ -1,10 +1,15 @@
+function! StatusLine(active)
+  return '%f%m%r%='.
+    \(a:active ? '%c,%l/%-6L%{strftime("%a\ %d\ %l:%M")}' : '')
+endfunction
+
 set clipboard=unnamedplus
 set expandtab
 set inccommand=nosplit
 set mouse=n
 set scrolloff=2
 set shiftwidth=2
-set statusline=%f%m%r%=%c,%l/%-6L%{strftime('%a\ %d\ %l:%M')}
+set statusline=%!StatusLine(1)
 
 " disable netrw (use a different tool)
 let g:loaded_netrw=1
@@ -22,7 +27,7 @@ nn <esc> :x<cr>
 nn <space>; :sp +startinsert \| term nu<cr>
 nn <space>a zA
 nn <space>ee :sp $MYVIMRC<cr>
-nn <expr> <space>ef ':sp ~/.config/nvim/after/ftplugin/' .. &ft .. '.vim<cr>'
+nn <expr> <space>ef ':sp ~/.config/nvim/after/ftplugin/' . &ft . '.vim<cr>'
 nn <space>ei :sp ~/notes/ideas.md<cr>
 nn <space>et :sp ~/notes/todo.md<cr>
 
@@ -37,7 +42,10 @@ au BufRead *
 " MANPAGER = nvim
 au BufRead /tmp/man.* set ft=man
 " open fold, center (hide error when there are no folds)
-au BufWinEnter * silent! exe 'normal! zozz'
+au BufWinEnter * silent! exe 'normal! zOzz'
+" active/inactive statusline
+au WinEnter * setlocal statusline=%!StatusLine(1)
+au WinLeave * setlocal statusline=%!StatusLine(0)
 " toggle hlsearch
 au CmdlineEnter /,\? set hlsearch
 au CmdlineLeave /,\? set nohlsearch
