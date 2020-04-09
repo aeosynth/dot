@@ -15,6 +15,7 @@ set statusline=%!StatusLine(1)
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
 let g:markdown_folding=1
+let g:sneak#s_next=1
 
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
@@ -22,14 +23,21 @@ map F <Plug>Sneak_F
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
-nn <c-k> <C-^>
 nn <esc> :x<cr>
-nn <space>; :sp +startinsert \| term nu<cr>
+nn ; :
+nn <space>ts :sp +term\ nu<cr>
+nn <space>tt :term nu<cr>
 nn <space>a zA
-nn <space>ee :sp $MYVIMRC<cr>
-nn <expr> <space>ef ':sp ~/.config/nvim/after/ftplugin/' . &ft . '.vim<cr>'
-nn <space>ei :sp ~/notes/ideas.md<cr>
-nn <space>et :sp ~/notes/todo.md<cr>
+nn <space>b :ls<cr>:b 
+nn <space>eb :e ~/notes/book/current.md<cr>
+nn <space>ee :e $MYVIMRC<cr>
+nn <space>ei :e ~/notes/ideas.md<cr>
+nn <space>et :e ~/notes/todo.md<cr>
+nn <space>sb :e ~/notes/book/current.md<cr>
+nn <space>se :sp $MYVIMRC<cr>
+nn <expr> <space>sf ':sp ~/.config/nvim/after/ftplugin/' . &ft . '.vim<cr>'
+nn <space>si :sp ~/notes/ideas.md<cr>
+nn <space>st :sp ~/notes/todo.md<cr>
 
 " update status line
 call timer_start(10000, {-> execute('let &ro = &ro')}, {'repeat': -1})
@@ -50,4 +58,4 @@ au WinLeave * setlocal statusline=%!StatusLine(0)
 au CmdlineEnter /,\? set hlsearch
 au CmdlineLeave /,\? set nohlsearch
 " terminal
-au TermClose * call feedkeys('q')
+au TermOpen * startinsert

@@ -11,8 +11,8 @@ super + f
 super + {_,shift + }{j,k}
   bspc node -{f,s} {next,prev}.local
 
+super + {l,grave}
+  bspc desktop -f last
+
 super + {_,shift + }{1-5}
   bspc {desktop -f,node -d} '^{1-5}'
-
-super + grave
-  bspc desktop -f last
