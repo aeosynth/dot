@@ -1,8 +1,11 @@
 super + semicolon
   alacritty
 
-super + Escape
+super + slash
   pkill -USR1 -x sxhkd
+
+super + @Escape
+  doas zzz
 
 # bspwm
 super + f

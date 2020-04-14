@@ -1,4 +1,5 @@
 iabbr <buffer> lm let mut
+iabbr <buffer> ma match
 iabbr <buffer> st struct
 
 iabbr <buffer> P println!

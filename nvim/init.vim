@@ -1,8 +1,3 @@
-function! StatusLine(active)
-  return '%f%m%r%='.
-    \(a:active ? '%c,%l/%-6L%{strftime("%a\ %d\ %l:%M")}' : '')
-endfunction
-
 set clipboard=unnamedplus
 set expandtab
 set inccommand=nosplit
@@ -25,6 +20,8 @@ map S <Plug>Sneak_S
 
 nn <esc> :x<cr>
 nn ; :
+nn <C-k> <C-w>w
+nn <C-l> <C-^>
 nn <space>ts :sp +term\ nu<cr>
 nn <space>tt :term nu<cr>
 nn <space>a zA
@@ -40,22 +37,31 @@ nn <space>si :sp ~/notes/ideas.md<cr>
 nn <space>st :sp ~/notes/todo.md<cr>
 
 " update status line
+call timer_stopall()
 call timer_start(10000, {-> execute('let &ro = &ro')}, {'repeat': -1})
 
-" restore cursor
-au BufRead *
-\ if &ft !~# 'commit'
-\ | exe 'normal! g`"'
-\ | endif
-" MANPAGER = nvim
-au BufRead /tmp/man.* set ft=man
-" open fold, center (hide error when there are no folds)
-au BufWinEnter * silent! exe 'normal! zOzz'
-" active/inactive statusline
-au WinEnter * setlocal statusline=%!StatusLine(1)
-au WinLeave * setlocal statusline=%!StatusLine(0)
-" toggle hlsearch
-au CmdlineEnter /,\? set hlsearch
-au CmdlineLeave /,\? set nohlsearch
-" terminal
-au TermOpen * startinsert
+augroup startup
+  autocmd!
+  " restore cursor
+  au BufRead *
+  \ if &ft !~# 'commit'
+  \ | exe 'normal! g`"'
+  \ | endifinstead of `image-display-duration=inf`
+  " MANPAGER = nvim
+  au BufRead /tmp/man.* set ft=man
+  " center
+  au BufWinEnter * exe 'normal! zz'
+  " active/inactive statusline
+  au WinEnter * setlocal statusline=%!StatusLine(1)
+  au WinLeave * setlocal statusline=%!StatusLine(0)
+  " toggle hlsearch
+  au CmdlineEnter /,\? set hlsearch
+  au CmdlineLeave /,\? set nohlsearch
+  " terminal
+  au TermOpen * startinsert
+augroup END
+
+function! StatusLine(active)
+  return '%f%m%r%='.
+    \(a:active ? '%c,%l/%-6L%{strftime("%a\ %d\ %l:%M")}' : '')
+endfunction
