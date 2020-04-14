@@ -46,7 +46,7 @@ augroup startup
   au BufRead *
   \ if &ft !~# 'commit'
   \ | exe 'normal! g`"'
-  \ | endifinstead of `image-display-duration=inf`
+  \ | endif
   " MANPAGER = nvim
   au BufRead /tmp/man.* set ft=man
   " center
