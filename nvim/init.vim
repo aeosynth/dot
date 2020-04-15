@@ -26,6 +26,8 @@ nn <space>ts :sp +term\ nu<cr>
 nn <space>tt :term nu<cr>
 nn <space>a zA
 nn <space>b :ls<cr>:b 
+nn <space>k <C-w>w
+nn <space>l <C-^>
 nn <space>eb :e ~/notes/book/current.md<cr>
 nn <space>ee :e $MYVIMRC<cr>
 nn <space>ei :e ~/notes/ideas.md<cr>
