@@ -1,3 +1,4 @@
+iabbr <buffer> il if let
 iabbr <buffer> lm let mut
 iabbr <buffer> ma match
 iabbr <buffer> st struct
