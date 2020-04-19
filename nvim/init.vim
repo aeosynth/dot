@@ -1,3 +1,4 @@
+set autowriteall
 set clipboard=unnamedplus
 set expandtab
 set inccommand=nosplit
@@ -10,7 +11,6 @@ set statusline=%!StatusLine(1)
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
 let g:markdown_folding=1
-let g:sneak#s_next=1
 
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
@@ -18,16 +18,13 @@ map F <Plug>Sneak_F
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
 
-nn <esc> :x<cr>
-nn ; :
+nn <esc> :q<cr>
 nn <C-k> <C-w>w
 nn <C-l> <C-^>
 nn <space>ts :sp +term\ nu<cr>
 nn <space>tt :term nu<cr>
 nn <space>a zA
 nn <space>b :ls<cr>:b 
-nn <space>k <C-w>w
-nn <space>l <C-^>
 nn <space>eb :e ~/notes/book/current.md<cr>
 nn <space>ee :e $MYVIMRC<cr>
 nn <space>ei :e ~/notes/ideas.md<cr>
