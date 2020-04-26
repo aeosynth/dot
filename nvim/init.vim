@@ -10,7 +10,7 @@ set statusline=%!StatusLine(1)
 " disable netrw (use a different tool)
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
-let g:markdown_folding=1
+"let g:markdown_folding=1
 
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
@@ -23,7 +23,6 @@ nn <C-k> <C-w>w
 nn <C-l> <C-^>
 nn <space>ts :sp +term\ nu<cr>
 nn <space>tt :term nu<cr>
-nn <space>a zA
 nn <space>b :ls<cr>:b 
 nn <space>eb :e ~/notes/book/current.md<cr>
 nn <space>ee :e $MYVIMRC<cr>
@@ -43,11 +42,9 @@ augroup startup
   autocmd!
   " restore cursor
   au BufRead *
-  \ if &ft !~# 'commit'
+  \ if line("'\"") <= line("$") && &ft !~# 'commit'
   \ | exe 'normal! g`"'
   \ | endif
-  " MANPAGER = nvim
-  au BufRead /tmp/man.* set ft=man
   " center
   au BufWinEnter * exe 'normal! zz'
   " active/inactive statusline
