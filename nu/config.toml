@@ -1,0 +1,23 @@
+path = ["/home/james/.cargo/bin"]
+startup = [
+"alias e [x] { nvim $x }",
+"alias ee [] { e ~/.config/nvim/init.vim }",
+"alias en [x] { fd -1tf $x ~/notes | trim | nvim $it }",
+
+"alias ga [x] { git add $x }",
+"alias gc [x] { git checkout $x }",
+"alias gd [] { git diff }",
+"alias gg [x] { git grep $x }",
+"alias gh [x] { git clone --depth=1 $x }",
+"alias gl [] { git log }",
+"alias gm [x] { git commit -am $x }",
+"alias gp [] { git push }",
+"alias gu [] { git pull }",
+
+"alias l [x] { ls $x }",
+"alias la [x] { ls -a $x }",
+"alias m [x] { mpv $x }",
+"alias ms [x] { mpv --save-position-on-quit --pause $x }",
+]
+[env]
+MANPAGER = "nvim +Man!"
