@@ -1,10 +1,6 @@
 font:
   normal:
-    family: Noto Sans Mono
-mouse:
-  url:
-    launcher:
-      program: firefox
+    family: Source Code Pro
 
 colors:
   primary:

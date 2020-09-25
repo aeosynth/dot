@@ -1,15 +1,19 @@
 set autowriteall
 set clipboard=unnamedplus
 set expandtab shiftwidth=2
+set ignorecase smartcase nohlsearch
 set inccommand=nosplit
 set mouse=n
-set nohlsearch
 
 nn <esc> :q<cr>
+nn L <C-^>
 
 nn <space>e :e $MYVIMRC<cr>
 nn <expr> <space>f ':sp ~/.config/nvim/after/ftplugin/' . &ft . '.vim<cr>'
 nn <space>s :w<cr>
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
 
 " status
 set statusline=%f%m%r%=%c,%l/%-6L%{strftime(\"%a\ %d\ %l:%M\")}
